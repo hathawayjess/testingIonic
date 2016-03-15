@@ -3,5 +3,8 @@
 
    <calendar selected="day"></calendar>
 
-
+   <label class="item item-input" ng-controller="DashCtrl">
+   <span class="input-label">Date</span>
+   <input type="date" ng-model="startDate" ng-change="startDateChange(startDate)">
+   </label>
 </ion-view>
