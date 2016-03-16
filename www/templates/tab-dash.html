@@ -1,10 +1,47 @@
-<ion-view view-title="Dashboard">
+<ion-view view-title="Dashboard" ng-controller="DashCtrl">
   <ion-content class="padding">
+   <!-- <calendar selected="day" start-date="startDate" cycle-length="cycleLength"></calendar> -->
 
-   <calendar selected="day"></calendar>
-
-   <label class="item item-input" ng-controller="DashCtrl">
+   <label class="item item-input">
    <span class="input-label">Date</span>
    <input type="date" ng-model="startDate" ng-change="startDateChange(startDate)">
    </label>
+
+   <label class="item item-input">
+   <span class="input-label">Length</span>
+   <!-- <input type="number" ng-model="cycleLength" ng-change="cycleChange(cycleLength)"> -->
+</label>
+
+<!-- <label class="item item-input">
+<span class="input-label">Day of Cycle</span>
+<input type="number" ng-model="dayOfCycle" ng-change="dayOfCycleChange(dayOfCycle)">
+</label> -->
+
+
+
+ {{startDate}}
+ {{cycleLength}}
+
+ <select ng-model="cycleLength" ng-change="changedCycleLength(cycleLength)" ng-options="o for o in cycleLengthArray"></select>
+
+<div ng-repeat="days in userCycleLengthArray" class="container">
+  <div ng-if="$index%5==0" class="row" id="cycledays">
+    <span class="col" style="float:left"> {{days[$index]}} </span>
+    <span class="col" style="float:left"> {{days[$index+1]}} </span>
+    <span class="col" style="float:left"> {{days[$index+2]}} </span>
+  </div>
+</div>
+
+<div class="row calendar">
+ <div class="col" id="cycledays" ng-repeat="days in userCycleLengthArray track by $index">
+   </div>
+</div>
+
+
+ <!-- <a-carousel
+      item-directive="name-of-your-directive"
+      carousel-options="::vm.carouselOptions"
+      array-provider="::vm.carouselData"
+      on-select="vm.onSelectCarousel(item)">
+</a-carousel> -->
 </ion-view>

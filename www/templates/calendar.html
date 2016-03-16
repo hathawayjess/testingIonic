@@ -1,7 +1,20 @@
-<div id="calendar-wrapper">
+<script id="contact-modal.html" type="text/ng-template">
+  <div class="modal">
+    <ion-header-bar>
+      <h1 class="title">Day</h1>
+    </ion-header-bar>
+    <ion-content>
+        <p>ENTER INFO HERE</p>
+
+      <button class="button button-full button-energized" ng-click="closeModal()">Done</button>
+    </ion-content>
+  </div>
+</script>
+
+<div id="calendar" ng-controller="modalCtrl">
   <div class="header">
  <i class="fa fa-angle-left" ng-click="previous()"></i>
- <span>{{month.format("MMMM, YYYY")}}</span>
+ <span>{{month.format("MMMM, YYYY")}}{{cycleLength}}</span>
  <i class="fa fa-angle-right" ng-click="next()"></i>
 </div>
 <div class="week names">
@@ -14,6 +27,14 @@
  <span class="day">Sat</span>
 </div>
 <div class="week" ng-repeat="week in weeks">
- <span class="day" ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }" ng-click="select(day)" ng-repeat="day in week.days">{{day.number}}</span>
+ <span
+  class="day"
+  ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth, selected: day.date.isSame(selected) }"
+  ng-click="select(day); openModal()"
+  ng-repeat="day in week.days">
+  {{day.number}}
+</span>
 </div>
+
+
 </div>

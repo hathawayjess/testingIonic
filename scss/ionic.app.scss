@@ -19,6 +19,14 @@ $dark:                            #444 !default;
 $positive: #53922B !default;
 $stable: #B4D455 !default;
 
+
+
+#cycledays {
+  display: inline-block;
+  border: 1px solid #000;
+  padding: 10px;
+}
+
 #calendar-wrapper {
   box-sizing: border-box;
   display: inline-block;
