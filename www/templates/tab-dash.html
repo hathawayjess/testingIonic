@@ -24,18 +24,20 @@
 
  <select ng-model="cycleLength" ng-change="changedCycleLength(cycleLength)" ng-options="o for o in cycleLengthArray"></select>
 
-<div ng-repeat="days in userCycleLengthArray" class="container">
+<!-- <div ng-repeat="days in userCycleLengthArray" class="container">
   <div ng-if="$index%5==0" class="row" id="cycledays">
     <span class="col" style="float:left"> {{days[$index]}} </span>
     <span class="col" style="float:left"> {{days[$index+1]}} </span>
     <span class="col" style="float:left"> {{days[$index+2]}} </span>
   </div>
-</div>
+</div> -->
 
-<div class="row calendar">
- <div class="col" id="cycledays" ng-repeat="days in userCycleLengthArray track by $index">
+<div class="row calendar" style="flex-wrap: wrap;">
+ <div class="col col-20" id="cycledays" ng-repeat="days in userCycleLengthArray track by $index">{{days}}
    </div>
 </div>
+
+
 
 
  <!-- <a-carousel

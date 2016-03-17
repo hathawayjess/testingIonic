@@ -139,6 +139,7 @@ $scope.userCycleLengthArray = [];
 
 
 
+
 $scope.changedCycleLength = function(val) {
     $scope.userCycleLengthArray = [];
     $scope.cycleLength = val;
